@@ -1,0 +1,12 @@
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\bin\Debug\net6.0\CustomerRegistration.Service.deps.json
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\bin\Debug\net6.0\CustomerRegistration.Service.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\bin\Debug\net6.0\CustomerRegistration.Service.pdb
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\obj\Debug\net6.0\CustomerRegistration.Service.csproj.AssemblyReference.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\obj\Debug\net6.0\CustomerRegistration.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\obj\Debug\net6.0\CustomerRegistration.Service.AssemblyInfoInputs.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\obj\Debug\net6.0\CustomerRegistration.Service.AssemblyInfo.cs
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\obj\Debug\net6.0\CustomerRegistration.Service.csproj.CoreCompileInputs.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\obj\Debug\net6.0\CustomerRegistration.Service.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\obj\Debug\net6.0\refint\CustomerRegistration.Service.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\obj\Debug\net6.0\CustomerRegistration.Service.pdb
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Service\obj\Debug\net6.0\ref\CustomerRegistration.Service.dll

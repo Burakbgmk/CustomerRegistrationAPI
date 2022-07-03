@@ -1,0 +1,17 @@
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\bin\Debug\net6.0\CustomerRegistration.Data.deps.json
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\bin\Debug\net6.0\CustomerRegistration.Data.runtimeconfig.json
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\bin\Debug\net6.0\CustomerRegistration.Data.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\bin\Debug\net6.0\CustomerRegistration.Data.pdb
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\CustomerRegistration.Data.csproj.AssemblyReference.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\CustomerRegistration.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\CustomerRegistration.Data.AssemblyInfoInputs.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\CustomerRegistration.Data.AssemblyInfo.cs
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\CustomerRegistration.Data.csproj.CoreCompileInputs.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\CustomerRegistration.Data.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\refint\CustomerRegistration.Data.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\CustomerRegistration.Data.pdb
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\CustomerRegistration.Data.genruntimeconfig.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\ref\CustomerRegistration.Data.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\bin\Debug\net6.0\CustomerRegistration.Core.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\bin\Debug\net6.0\CustomerRegistration.Core.pdb
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Data\obj\Debug\net6.0\CustomerRegistration.Data.csproj.CopyComplete
