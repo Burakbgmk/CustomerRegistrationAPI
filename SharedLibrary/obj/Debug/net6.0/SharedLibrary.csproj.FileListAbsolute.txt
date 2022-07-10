@@ -1,0 +1,12 @@
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\bin\Debug\net6.0\SharedLibrary.deps.json
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\bin\Debug\net6.0\SharedLibrary.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\bin\Debug\net6.0\SharedLibrary.pdb
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\obj\Debug\net6.0\SharedLibrary.csproj.AssemblyReference.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\obj\Debug\net6.0\SharedLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\obj\Debug\net6.0\SharedLibrary.AssemblyInfoInputs.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\obj\Debug\net6.0\SharedLibrary.AssemblyInfo.cs
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\obj\Debug\net6.0\SharedLibrary.csproj.CoreCompileInputs.cache
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\obj\Debug\net6.0\SharedLibrary.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\obj\Debug\net6.0\refint\SharedLibrary.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\obj\Debug\net6.0\SharedLibrary.pdb
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\SharedLibrary\obj\Debug\net6.0\ref\SharedLibrary.dll

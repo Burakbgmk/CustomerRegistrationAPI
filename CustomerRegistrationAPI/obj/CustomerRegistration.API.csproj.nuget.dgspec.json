@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\SharedLibrary\\SharedLibrary.csproj": {
+                "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\SharedLibrary\\SharedLibrary.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -41,6 +45,10 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
               "version": "[6.0.6, )"
             }
@@ -104,13 +112,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.6, )"
             },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.6, )"
             },
@@ -123,6 +129,78 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\CustomerRegistration.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\CustomerRegistration.Service.csproj",
+        "projectName": "CustomerRegistration.Service",
+        "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\CustomerRegistration.Service.csproj",
+        "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
+        "outputPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Data\\CustomerRegistration.Data.csproj": {
+                "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Data\\CustomerRegistration.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.21.0, )"
             }
           },
           "imports": [
@@ -168,11 +246,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Core\\CustomerRegistration.Core.csproj": {
-                "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Core\\CustomerRegistration.Core.csproj"
-              },
-              "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Data\\CustomerRegistration.Data.csproj": {
-                "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Data\\CustomerRegistration.Data.csproj"
+              "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\CustomerRegistration.Service.csproj": {
+                "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\CustomerRegistration.Service.csproj"
               }
             }
           }
@@ -187,11 +262,7 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.6, )"
-            },
-            "Microsoft.EntityFrameworkCore.Abstractions": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.6, )"
             },
@@ -201,17 +272,21 @@
               "target": "Package",
               "version": "[6.0.6, )"
             },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "[6.0.6, )"
-            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[6.0.5, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.3.1, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            },
+            "Swashbuckle.AspNetCore.Filters": {
+              "target": "Package",
+              "version": "[7.0.3, )"
             }
           },
           "imports": [
@@ -228,6 +303,66 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\SharedLibrary\\SharedLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\SharedLibrary\\SharedLibrary.csproj",
+        "projectName": "SharedLibrary",
+        "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\SharedLibrary\\SharedLibrary.csproj",
+        "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
+        "outputPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\SharedLibrary\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.21.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

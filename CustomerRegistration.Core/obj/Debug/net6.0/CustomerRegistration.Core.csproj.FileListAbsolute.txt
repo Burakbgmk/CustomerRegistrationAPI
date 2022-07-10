@@ -10,3 +10,6 @@ D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerR
 D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Core\obj\Debug\net6.0\refint\CustomerRegistration.Core.dll
 D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Core\obj\Debug\net6.0\CustomerRegistration.Core.pdb
 D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Core\obj\Debug\net6.0\ref\CustomerRegistration.Core.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Core\bin\Debug\net6.0\SharedLibrary.dll
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Core\bin\Debug\net6.0\SharedLibrary.pdb
+D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\CustomerRegistration.Core\obj\Debug\net6.0\CustomerRegistration.Core.csproj.CopyComplete
