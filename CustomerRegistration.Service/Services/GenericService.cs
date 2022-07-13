@@ -41,6 +41,8 @@ namespace CustomerRegistration.Service.Services
         public async Task<Response<IEnumerable<TDto>>> GetAllAsync()
         {
             var entities = await _genericRepository.GetAllAsync();
+            if (entities == null)
+                return Response<IEnumerable<TDto>>.Fail("No data is found!",404,true);
             var dtos = ObjectMapper.Mapper.Map<IEnumerable<TDto>>(entities);
             return Response<IEnumerable<TDto>>.Success(dtos, 200);
 
@@ -48,6 +50,8 @@ namespace CustomerRegistration.Service.Services
         public async Task<Response<IEnumerable<TDto>>> GetAllAsync(int page, int pageCapacity)
         {
             var entities = await _genericRepository.GetAllAsync(page,pageCapacity);
+            if (entities == null)
+                return Response<IEnumerable<TDto>>.Fail("No data is found!", 404, true);
             var dtos = ObjectMapper.Mapper.Map<IEnumerable<TDto>>(entities);
             return Response<IEnumerable<TDto>>.Success(dtos, 200);
 

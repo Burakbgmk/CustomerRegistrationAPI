@@ -1,7 +1,6 @@
 ﻿using CustomerRegistration.Core.DTOs;
 using CustomerRegistration.Core.Services.AuthServices;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CustomerRegistration.API.Controllers
@@ -26,9 +25,17 @@ namespace CustomerRegistration.API.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> GetUser(string userName)
+        public async Task<IActionResult> GetUser()
         {
-            var response = await _userService.GetUserByNameAsync(userName);
+            var response = await _userService.GetUserByNameAsync(HttpContext.User.Identity.Name);
+            return ActionResultInstance(response);
+        }
+
+        [Authorize(Roles ="Admin")]
+        [HttpGet("{username}")]
+        public async Task<IActionResult> GetUser(string username)
+        {
+            var response = await _userService.GetUserByNameAsync(username);
             return ActionResultInstance(response);
         }
     }

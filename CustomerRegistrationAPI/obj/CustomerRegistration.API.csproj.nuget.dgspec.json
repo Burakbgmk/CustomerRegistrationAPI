@@ -44,6 +44,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.6, )"
@@ -129,6 +133,88 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Report\\CustomerRegistration.Report.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Report\\CustomerRegistration.Report.csproj",
+        "projectName": "CustomerRegistration.Report",
+        "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Report\\CustomerRegistration.Report.csproj",
+        "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
+        "outputPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Report\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Core\\CustomerRegistration.Core.csproj": {
+                "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Core\\CustomerRegistration.Core.csproj"
+              },
+              "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Data\\CustomerRegistration.Data.csproj": {
+                "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Data\\CustomerRegistration.Data.csproj"
+              },
+              "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\CustomerRegistration.Service.csproj": {
+                "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\CustomerRegistration.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "FluentEmail.Smtp": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.4.0, )"
             }
           },
           "imports": [
@@ -246,6 +332,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Report\\CustomerRegistration.Report.csproj": {
+                "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Report\\CustomerRegistration.Report.csproj"
+              },
               "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\CustomerRegistration.Service.csproj": {
                 "projectPath": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistration.Service\\CustomerRegistration.Service.csproj"
               }
@@ -347,9 +436,29 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[6.21.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [

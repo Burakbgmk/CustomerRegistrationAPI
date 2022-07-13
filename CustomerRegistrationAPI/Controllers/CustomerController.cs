@@ -65,9 +65,17 @@ namespace CustomerRegistration.API.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpGet("/[action]")]
-        public async Task<IActionResult> CheckCustomersWithSamePhoneNumber()
+        public async Task<IActionResult> CheckSamePhoneNumber()
         {
             var response = await _customerService.GetCustomersWithSamePhoneNumber();
+            return ActionResultInstance(response);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("/[action]")]
+        public async Task<IActionResult> UploadImage([FromRoute] int id, IFormFile imageFile)
+        {
+            var response = await _customerService.UploadCustomerPhoto(id, imageFile);
             return ActionResultInstance(response);
         }
     }

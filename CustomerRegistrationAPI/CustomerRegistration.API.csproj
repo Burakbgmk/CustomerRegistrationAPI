@@ -20,7 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CustomerRegistration.Report\CustomerRegistration.Report.csproj" />
     <ProjectReference Include="..\CustomerRegistration.Service\CustomerRegistration.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\watermarks\" />
   </ItemGroup>
 
 </Project>

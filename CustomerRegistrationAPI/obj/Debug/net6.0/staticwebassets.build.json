@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "EzblkfeaSFWRsRmpPFQdGzMZs9uLwS0CtwGHXwDXWUo=",
+  "Hash": "+++xCINokDHDL3mN5ytw35S3+dXiIP1Ij507lHvE3Tk=",
   "Source": "CustomerRegistration.API",
   "BasePath": "_content/CustomerRegistration.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CustomerRegistration.API\\wwwroot",
+      "Source": "CustomerRegistration.API",
+      "ContentRoot": "D:\\Desktop\\Patika\\LINK-BOOTCAMP\\BitirmeProjesi\\CustomerRegistrationAPI\\CustomerRegistrationAPI\\wwwroot\\",
+      "BasePath": "_content/CustomerRegistration.API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
