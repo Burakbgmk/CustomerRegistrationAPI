@@ -78,7 +78,91 @@ namespace CustomerRegistration.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customer");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.CustomerCountByCityReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CustomerCountByCityReports");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.CustomerCountByCityReportDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ReportId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReportId");
+
+                    b.ToTable("CustomerCountByCityReportDetails");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.TopFiveCustomersByActivityReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TopFiveCustomersByActivityReports");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.TopFiveCustomersByActivityReportDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ActivityCount")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ReportId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReportId");
+
+                    b.ToTable("TopFiveCustomersByActivityReportDetail");
                 });
 
             modelBuilder.Entity("CustomerRegistration.Core.Entities.UserApp", b =>
@@ -308,6 +392,28 @@ namespace CustomerRegistration.Data.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.CustomerCountByCityReportDetail", b =>
+                {
+                    b.HasOne("CustomerRegistration.Core.Entities.CustomerCountByCityReport", "Report")
+                        .WithMany("Details")
+                        .HasForeignKey("ReportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Report");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.TopFiveCustomersByActivityReportDetail", b =>
+                {
+                    b.HasOne("CustomerRegistration.Core.Entities.TopFiveCustomersByActivityReport", "Report")
+                        .WithMany("Details")
+                        .HasForeignKey("ReportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Report");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -362,6 +468,16 @@ namespace CustomerRegistration.Data.Migrations
             modelBuilder.Entity("CustomerRegistration.Core.Entities.Customer", b =>
                 {
                     b.Navigation("CommercialActivities");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.CustomerCountByCityReport", b =>
+                {
+                    b.Navigation("Details");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.TopFiveCustomersByActivityReport", b =>
+                {
+                    b.Navigation("Details");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CustomerRegistration.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220708131424_Initial")]
-    partial class Initial
+    [Migration("20220714202208_report1")]
+    partial class report1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,7 +36,7 @@ namespace CustomerRegistration.Data.Migrations
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -61,32 +61,67 @@ namespace CustomerRegistration.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Photograph")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.CustomerCountByCityReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reports");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.CustomerCountByCityReportDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ReportId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReportId");
+
+                    b.ToTable("CustomerCountByCityReportDetails");
                 });
 
             modelBuilder.Entity("CustomerRegistration.Core.Entities.UserApp", b =>
@@ -163,7 +198,7 @@ namespace CustomerRegistration.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("Expiration")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("Id")
                         .HasColumnType("integer");
@@ -316,6 +351,17 @@ namespace CustomerRegistration.Data.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.CustomerCountByCityReportDetail", b =>
+                {
+                    b.HasOne("CustomerRegistration.Core.Entities.CustomerCountByCityReport", "Report")
+                        .WithMany("Details")
+                        .HasForeignKey("ReportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Report");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -370,6 +416,11 @@ namespace CustomerRegistration.Data.Migrations
             modelBuilder.Entity("CustomerRegistration.Core.Entities.Customer", b =>
                 {
                     b.Navigation("CommercialActivities");
+                });
+
+            modelBuilder.Entity("CustomerRegistration.Core.Entities.CustomerCountByCityReport", b =>
+                {
+                    b.Navigation("Details");
                 });
 #pragma warning restore 612, 618
         }

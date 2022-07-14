@@ -5,11 +5,6 @@ using CustomerRegistration.Report.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Quartz;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomerRegistration.Report
 {
@@ -28,6 +23,7 @@ namespace CustomerRegistration.Report
         public async Task Execute(IJobExecutionContext context)
         {
             await GetCustomerCountsToExcel();
+            await UpdateToDatabase();
             await SendMailToReceivers();
             Console.WriteLine($"-Customer Counts by City- report is send! {DateTime.Now:U}");
         }
@@ -38,7 +34,7 @@ namespace CustomerRegistration.Report
             {
                 var dbContext = scope.ServiceProvider.GetService<AppDbContext>();
                 var _customerSet = dbContext.Set<Customer>();
-                var entities = await _customerSet.ToListAsync();
+                var entities = await _customerSet.AsNoTracking().ToListAsync();
                 var counts = entities.GroupBy(x => x.City).ToList();
                 var list = new List<CustomerCountByCityDto>();
                 foreach (var count in counts)
@@ -49,12 +45,32 @@ namespace CustomerRegistration.Report
             }
         }
 
+        private async Task UpdateToDatabase()
+        {
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetService<AppDbContext>();
+                var _customerSet = dbContext.Set<Customer>();
+                var entities = await _customerSet.AsNoTracking().ToListAsync();
+                var counts = entities.GroupBy(x => x.City).ToList();
+                var _reportDetailSet = dbContext.Set<CustomerCountByCityReportDetail>();
+                var _reportSet = dbContext.Set<CustomerCountByCityReport>();
+                var report = new CustomerCountByCityReport();
+                await _reportSet.AddAsync(report);
+                foreach (var count in counts)
+                {
+                    await _reportDetailSet.AddAsync(new CustomerCountByCityReportDetail {City  = count.Key, Count = count.Count(), ReportId = report.Id, Report = report });
+                }
+                await dbContext.SaveChangesAsync();
+            }
+        }
+
         private async Task SendMailToReceivers()
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetService<AppDbContext>();
-                var entities = await dbContext.Set<UserApp>().ToListAsync();
+                var entities = await dbContext.Set<UserApp>().AsNoTracking().ToListAsync();
                 var receivers = entities.Select(x => x.Email).ToList();
                 foreach(var receiver in receivers)
                     await _emailSenderService.EmailSend(receiver);

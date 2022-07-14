@@ -67,10 +67,10 @@ builder.Services.AddScoped(typeof(ICustomerService<Customer,CustomerDto>), typeo
 builder.Services.AddScoped(typeof(ICommercialActivityService<CommercialActivity,CommercialActivityDto>), typeof(CommercialActivityService));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddSingleton(sp => new ConnectionFactory() { Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMq"))});
+builder.Services.AddSingleton(sp => new ConnectionFactory() { Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMq")) });
 builder.Services.AddSingleton<RabbitMqClientService>();
 builder.Services.AddSingleton<RabbitMqPublisherService>();
-builder.Services.AddHostedService<WatermarkImageBackgroundService>();
+//builder.Services.AddHostedService<WatermarkImageBackgroundService>();
 
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -119,6 +119,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddSingleton<IJobFactory, SingletonJobFactory>();
 builder.Services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
 
+builder.Services.AddScoped<IReportService,ReportService>();
 builder.Services.AddSingleton<EmailSenderService>();
 builder.Services.AddSingleton(typeof(ExcelService<>));
 builder.Services.AddSingleton<CustomerCountByCityJob>();
@@ -126,10 +127,12 @@ builder.Services.AddSingleton<TopFiveCustomerJob>();
 
 builder.Services.AddSingleton(new JobSchedule(
     jobType: typeof(CustomerCountByCityJob),
-    cronExpression: "0 0 12 1 * ?"));// Every month on the first day
+    //cronExpression: "0/10 * * * * ?"));
+cronExpression: "0 0 12 1 * ?"));// Every month on the first day
 builder.Services.AddSingleton(new JobSchedule(
     jobType: typeof(TopFiveCustomerJob),
-    cronExpression: "0 0 12 ? * FRI"));//Every Friday
+    //cronExpression: "0/10 * * * * ?"));
+cronExpression: "0 0 12 ? * FRI"));//Every Friday
 builder.Services.AddHostedService<QuartzHostedService>();
 
 

@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CustomerRegistration.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class report1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,16 +55,29 @@ namespace CustomerRegistration.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    FirstName = table.Column<string>(type: "text", nullable: false),
-                    LastName = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: false),
-                    Photograph = table.Column<string>(type: "text", nullable: false),
-                    Phone = table.Column<string>(type: "text", nullable: false),
-                    City = table.Column<string>(type: "text", nullable: false)
+                    FirstName = table.Column<string>(type: "text", nullable: true),
+                    LastName = table.Column<string>(type: "text", nullable: true),
+                    Email = table.Column<string>(type: "text", nullable: true),
+                    Photograph = table.Column<string>(type: "text", nullable: true),
+                    Phone = table.Column<string>(type: "text", nullable: true),
+                    City = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reports",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reports", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,7 +86,7 @@ namespace CustomerRegistration.Data.Migrations
                 {
                     UserId = table.Column<string>(type: "text", nullable: false),
                     Code = table.Column<string>(type: "text", nullable: false),
-                    Expiration = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Expiration = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -196,7 +209,7 @@ namespace CustomerRegistration.Data.Migrations
                     Description = table.Column<string>(type: "text", nullable: false),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
                     CustomerId = table.Column<int>(type: "integer", nullable: false),
-                    Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    Date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -205,6 +218,27 @@ namespace CustomerRegistration.Data.Migrations
                         name: "FK_CommercialActivities_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CustomerCountByCityReportDetails",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    City = table.Column<string>(type: "text", nullable: false),
+                    Count = table.Column<int>(type: "integer", nullable: false),
+                    ReportId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CustomerCountByCityReportDetails", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CustomerCountByCityReportDetails_Reports_ReportId",
+                        column: x => x.ReportId,
+                        principalTable: "Reports",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -250,6 +284,11 @@ namespace CustomerRegistration.Data.Migrations
                 name: "IX_CommercialActivities_CustomerId",
                 table: "CommercialActivities",
                 column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustomerCountByCityReportDetails_ReportId",
+                table: "CustomerCountByCityReportDetails",
+                column: "ReportId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -273,6 +312,9 @@ namespace CustomerRegistration.Data.Migrations
                 name: "CommercialActivities");
 
             migrationBuilder.DropTable(
+                name: "CustomerCountByCityReportDetails");
+
+            migrationBuilder.DropTable(
                 name: "UserRefreshTokens");
 
             migrationBuilder.DropTable(
@@ -283,6 +325,9 @@ namespace CustomerRegistration.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Customers");
+
+            migrationBuilder.DropTable(
+                name: "Reports");
         }
     }
 }

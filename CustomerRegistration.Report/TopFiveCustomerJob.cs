@@ -1,6 +1,7 @@
 ﻿using CustomerRegistration.Core.DTOs;
 using CustomerRegistration.Core.Entities;
 using CustomerRegistration.Data;
+using CustomerRegistration.Report.Dtos;
 using CustomerRegistration.Report.Services;
 using CustomerRegistration.Service.Mappers;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,10 @@ namespace CustomerRegistration.Report
     [DisallowConcurrentExecution]
     public class TopFiveCustomerJob : IJob
     {
-        private readonly ExcelService<Customer> _excelService;
+        private readonly ExcelService<TopFiveCustomersByActivityDto> _excelService;
         private readonly EmailSenderService _emailSenderService;
         private readonly IServiceProvider _serviceProvider;
-        public TopFiveCustomerJob(ExcelService<Customer> excelService, IServiceProvider serviceProvider, EmailSenderService emailSenderService)
+        public TopFiveCustomerJob(ExcelService<TopFiveCustomersByActivityDto> excelService, IServiceProvider serviceProvider, EmailSenderService emailSenderService)
         {
             _excelService = excelService;
             _serviceProvider = serviceProvider;
@@ -24,6 +25,7 @@ namespace CustomerRegistration.Report
         public async Task Execute(IJobExecutionContext context)
         {
             await GetTopFiveCustomersToExcel();
+            await UpdateToDatabase();
             await SendMailToReceivers();
             Console.WriteLine($"-Top 5 Customer by Activies- report is send! {DateTime.Now:U}");
         }
@@ -42,10 +44,41 @@ namespace CustomerRegistration.Report
                 {
                     topFive.Add(await _customerSet.FindAsync(item));
                 }
+                var topFiveCustomers = new List<TopFiveCustomersByActivityDto>();
+                foreach(var customer in topFive)
+                {
+                    topFiveCustomers.Add(new TopFiveCustomersByActivityDto { FirstName = customer.FirstName, LastName = customer.LastName, ActivityCount = customer.CommercialActivities.Count() });
+                }
 
-                await _excelService.ProcessExcel(topFive, "Top 5 Customers by Commercial Activity");
+                await _excelService.ProcessExcel(topFiveCustomers, "Top 5 Customers by Commercial Activity");
             }
 
+        }
+
+        private async Task UpdateToDatabase()
+        {
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetService<AppDbContext>();
+                var _commercialSet = dbContext.Set<CommercialActivity>();
+                var entities = await _commercialSet.ToListAsync();
+                var orderedList = entities.GroupBy(x => x.CustomerId).OrderByDescending(y => y.Count()).Take(5).SelectMany(z => z.Select(x => x.CustomerId)).Distinct().ToList();
+                var _reportDetailSet = dbContext.Set<TopFiveCustomersByActivityReportDetail>();
+                var _reportSet = dbContext.Set<TopFiveCustomersByActivityReport>();
+                var report = new TopFiveCustomersByActivityReport();
+                await _reportSet.AddAsync(report);
+                var _customerSet = dbContext.Set<Customer>();
+                var topFive = new List<Customer>();
+                foreach (var item in orderedList)
+                {
+                    topFive.Add(await _customerSet.FindAsync(item));
+                }
+                foreach (var customer in topFive)
+                {
+                    await _reportDetailSet.AddAsync(new TopFiveCustomersByActivityReportDetail { FirstName = customer.FirstName, LastName = customer.LastName, ActivityCount = customer.CommercialActivities.Count(), ReportId = report.Id, Report = report });
+                }
+                await dbContext.SaveChangesAsync();
+            }
         }
         private async Task SendMailToReceivers()
         {
