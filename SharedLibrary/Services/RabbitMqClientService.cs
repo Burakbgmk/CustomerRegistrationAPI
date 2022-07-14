@@ -22,6 +22,7 @@ namespace SharedLibrary.Services
 
         public IModel Connect()
         {
+            _connectionFactory.DispatchConsumersAsync = true;
             _connection = _connectionFactory.CreateConnection();
 
             if (_channel is { IsOpen: true })
@@ -34,7 +35,7 @@ namespace SharedLibrary.Services
 
             _channel.QueueDeclare(QueueName, true, false, false, null);
 
-            _channel.QueueBind(exchange: ExchangeName, queue: QueueName, routingKey: RoutingWatermark);
+            _channel.QueueBind( queue: QueueName, exchange: ExchangeName, routingKey: RoutingWatermark);
 
             _logger.LogInformation("RabbitMq ile bağlantı kuruldu!");
 

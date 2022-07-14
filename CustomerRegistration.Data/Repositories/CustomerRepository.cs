@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CustomerRegistration.Data.Repositories
 {
-    public class CustomerRepository<TEntity, TDto> : GenericRepository<Customer, CustomerDto>, ICustomerRepository<Customer, CustomerDto>
+    public class CustomerRepository : GenericRepository<Customer, CustomerDto>, ICustomerRepository<Customer, CustomerDto>
     {
         private readonly AppDbContext _context;
         private readonly DbSet<Customer> _dbSet;

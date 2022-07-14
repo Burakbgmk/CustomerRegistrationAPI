@@ -72,8 +72,8 @@ namespace CustomerRegistration.API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("/[action]")]
-        public async Task<IActionResult> UploadImage([FromRoute] int id, IFormFile imageFile)
+        [HttpPost("/[action]/{id}")]
+        public async Task<IActionResult> UploadImage(int id, IFormFile imageFile)
         {
             var response = await _customerService.UploadCustomerPhoto(id, imageFile);
             return ActionResultInstance(response);

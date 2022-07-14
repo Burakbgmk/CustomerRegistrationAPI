@@ -61,16 +61,16 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
-builder.Services.AddScoped(typeof(ICustomerRepository<,>), typeof(CustomerRepository<,>));
+builder.Services.AddScoped(typeof(ICustomerRepository<Customer,CustomerDto>), typeof(CustomerRepository));
 builder.Services.AddScoped(typeof(IGenericService<,>), typeof(GenericService<,>));
 builder.Services.AddScoped(typeof(ICustomerService<Customer,CustomerDto>), typeof(CustomerService));
 builder.Services.AddScoped(typeof(ICommercialActivityService<CommercialActivity,CommercialActivityDto>), typeof(CommercialActivityService));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddSingleton(sp => new ConnectionFactory() { Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMq")),DispatchConsumersAsync=true});
+builder.Services.AddSingleton(sp => new ConnectionFactory() { Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMq"))});
 builder.Services.AddSingleton<RabbitMqClientService>();
 builder.Services.AddSingleton<RabbitMqPublisherService>();
-//builder.Services.AddHostedService<WatermarkImageBackgroundService>();
+builder.Services.AddHostedService<WatermarkImageBackgroundService>();
 
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -121,19 +121,15 @@ builder.Services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
 
 builder.Services.AddSingleton<EmailSenderService>();
 builder.Services.AddSingleton(typeof(ExcelService<>));
-//builder.Services.AddSingleton<CustomerCountByCityJob>();
+builder.Services.AddSingleton<CustomerCountByCityJob>();
 builder.Services.AddSingleton<TopFiveCustomerJob>();
 
-//builder.Services.AddSingleton(new JobSchedule(
-//    jobType: typeof(CustomerCountByCityJob),
-//    cronExpression: "0/30 * * * * ?"));
+builder.Services.AddSingleton(new JobSchedule(
+    jobType: typeof(CustomerCountByCityJob),
+    cronExpression: "0 0 12 1 * ?"));// Every month on the first day
 builder.Services.AddSingleton(new JobSchedule(
     jobType: typeof(TopFiveCustomerJob),
-    cronExpression: "0/15 * * * * ?"));
-
-
-
-
+    cronExpression: "0 0 12 ? * FRI"));//Every Friday
 builder.Services.AddHostedService<QuartzHostedService>();
 
 

@@ -43,8 +43,8 @@ namespace SharedLibrary.BackgroundServices
 
             var consumer = new AsyncEventingBasicConsumer(_channel);
 
-            _channel.BasicConsume(RabbitMqClientService.QueueName,false,consumer);
 
+            _channel.BasicConsume(RabbitMqClientService.QueueName,false,consumer);
             consumer.Received += Consumer_Received;
 
             return Task.CompletedTask;
