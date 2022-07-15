@@ -39,6 +39,9 @@
 - These reports can be downloaded as excel files using ReportsController
 - Top Five Customers by Activity reports can only be seen by Admin.
 
+### Shared Library
+- Reponse Dto's, configurations, background services such as image watermarking, and RabbitMQ publisher and clients are in this section.
+
 ### API Layer
 - Controllers consists of Customer, Commercial Activity, Authentication, User, and Report.
 - ReportController is for downloading past reports according to their dates and Id's.
