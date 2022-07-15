@@ -63,7 +63,6 @@ namespace CustomerRegistration.API.Controllers
             return ActionResultInstance(response);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpGet("/[action]")]
         public async Task<IActionResult> CheckSamePhoneNumber()
         {
@@ -71,7 +70,6 @@ namespace CustomerRegistration.API.Controllers
             return ActionResultInstance(response);
         }
 
-        [AllowAnonymous]
         [HttpPost("/[action]/{id}")]
         public async Task<IActionResult> UploadImage(int id, IFormFile imageFile)
         {

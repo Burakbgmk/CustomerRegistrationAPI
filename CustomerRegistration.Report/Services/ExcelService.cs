@@ -20,7 +20,7 @@ namespace CustomerRegistration.Report.Services
         public async Task ProcessExcel(List<TDto> data, string header)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            var file = new FileInfo(@"D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\ExcelFile\Report.xlsx");
+            var file = new FileInfo(@"D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\CustomerRegistrationAPI\Report\Report.xlsx");
             var people = data;
             await SaveExcelFile(people, file, header);
         }
