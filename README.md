@@ -18,21 +18,21 @@
 - Entities are inherited from a base entity since they all have Id.
 - Services, Repositories and UnitOfWork classes have interfaces in here as an abstraction layer.
 
-## Data Layer
+### Data Layer
 - Generic and Customer Repositories, AppDbContext, and UnitOfWork classes are here.
 - This layer is for extracting data from database and serve it to an upper layer.
 
-## Service Layer
+### Service Layer
 - This layer consist of services and mappers.
 - Most of the bussiness actions are performed in this layer.
 - Authentication services also in here.
 
-## Report Layer
+### Report Layer
 - Reporting, excel, emailsending, and uploading reports are being done in this layer.
 - Reporting done by Quartz.Net.
 - Uploading is done by loading reports as one to many relationship entities to database. One's for keeping track of report Id, many is for reports detail as a list.
 
-## API Layer
+### API Layer
 - Controllers consists of Customer, Commercial Activity, Authentication, User, and Report.
 - ReportController is for downloading past reports according to their dates and Id's.
 
