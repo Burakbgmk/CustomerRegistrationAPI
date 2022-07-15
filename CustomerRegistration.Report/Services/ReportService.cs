@@ -1,25 +1,21 @@
 ﻿using CustomerRegistration.Core.Entities;
 using CustomerRegistration.Data;
+using CustomerRegistration.Report.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using SharedLibrary.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CustomerRegistration.Report.Services
 {
     public class ReportService : IReportService
     {
-        private readonly ExcelService<CustomerCountByCityReportDetail> _countExcelService;
-        private readonly ExcelService<TopFiveCustomersByActivityReportDetail> _topFiveExcelService;
+        private readonly IExcelService<CustomerCountByCityReportDetail> _countExcelService;
+        private readonly IExcelService<TopFiveCustomersByActivityReportDetail> _topFiveExcelService;
         private readonly AppDbContext _context;
         private readonly DbSet<CustomerCountByCityReport> _countReportSet;
         private readonly DbSet<TopFiveCustomersByActivityReport> _topFiveReportSet;
         private readonly DbSet<CustomerCountByCityReportDetail> _reportDetailSet;
         private readonly DbSet<TopFiveCustomersByActivityReportDetail> _topFiveDetailSet;
-        public ReportService(AppDbContext context, ExcelService<CustomerCountByCityReportDetail> countExcelService, ExcelService<TopFiveCustomersByActivityReportDetail> topFiveExcelService)
+        public ReportService(AppDbContext context, IExcelService<CustomerCountByCityReportDetail> countExcelService, IExcelService<TopFiveCustomersByActivityReportDetail> topFiveExcelService)
         {
             _context = context;
             _countReportSet = _context.Set<CustomerCountByCityReport>();

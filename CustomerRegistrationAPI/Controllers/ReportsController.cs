@@ -1,5 +1,5 @@
 ﻿using CustomerRegistration.Core.Entities;
-using CustomerRegistration.Report.Services;
+using CustomerRegistration.Report.Services.Abstractions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,7 +30,7 @@ namespace CustomerRegistration.API.Controllers
         [HttpPost("/[action]")]
         public async Task<IActionResult> DownloadCountReport(int reportId)
         {
-            var header = "Report";
+            var header = "-Customer Counts by City- report is downloaded";
             var response = await _reportService.DownloadCountByCityReports(reportId, header);
             return ActionResultInstance(response);
         }
@@ -38,7 +38,7 @@ namespace CustomerRegistration.API.Controllers
         [HttpPost("/[action]")]
         public async Task<IActionResult> DownloadTopFiveReport(int reportId)
         {
-            var header = "Report";
+            var header = "-Top 5 Customer by Activies- report is downloaded!";
             var response = await _reportService.DownloadTopFiveByActivityReports(reportId, header);
             return ActionResultInstance(response);
         }

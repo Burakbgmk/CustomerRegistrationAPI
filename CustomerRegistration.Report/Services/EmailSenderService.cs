@@ -1,11 +1,12 @@
-﻿using FluentEmail.Core;
+﻿using CustomerRegistration.Report.Services.Abstractions;
+using FluentEmail.Core;
 using FluentEmail.Smtp;
 using System.Net;
 using System.Net.Mail;
 
 namespace CustomerRegistration.Report.Services
 {
-    public class EmailSenderService
+    public class EmailSenderService : IEmailSenderService
     {
 
         public async Task EmailSend(string receiver)

@@ -1,4 +1,5 @@
 ﻿using CustomerRegistration.Report.Dtos;
+using CustomerRegistration.Report.Services.Abstractions;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CustomerRegistration.Report.Services
 {
-    public class ExcelService<TDto> where TDto : class
+    public class ExcelService<TDto> : IExcelService<TDto> where TDto : class
     {
         public ExcelService()
         {
@@ -19,7 +20,7 @@ namespace CustomerRegistration.Report.Services
         public async Task ProcessExcel(List<TDto> data, string header)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            var file = new FileInfo(@"D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\ExcelFile\Demo.xlsx");
+            var file = new FileInfo(@"D:\Desktop\Patika\LINK-BOOTCAMP\BitirmeProjesi\ExcelFile\Report.xlsx");
             var people = data;
             await SaveExcelFile(people, file, header);
         }
