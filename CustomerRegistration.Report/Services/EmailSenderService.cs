@@ -19,15 +19,15 @@ namespace CustomerRegistration.Report.Services
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential()
                 {
-                    UserName = "Burak_029920@hotmail.com",
-                    Password = "Thewill1685"
+                    UserName = "Burak_2992@hotmail.com",
+                    Password = ""
                 }
             });
 
             Email.DefaultSender = sender;
 
             var email = await Email
-                .From("Burak_029920@hotmail.com")
+                .From("Burak_2992@hotmail.com")
                 .To(receiver)
                 .Subject("Deneme123")
                 .Body("Thanks for sldfksdf")
